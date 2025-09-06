@@ -12,11 +12,11 @@ const PokemonDetails = () => {
       setPokemon(data);
     };
     fetchPokemon();
-  }, [id]); // Added dependency array with id
+  }, [id]);
 
   return (
     <div className="pokemon-details">
-      {pokemon ? ( // Check if pokemon exists to avoid errors
+      {pokemon ? (
         <>
           <h2>{pokemon.name}</h2>
           <img src={pokemon.sprites.front_default} alt={pokemon.name} />
@@ -25,7 +25,7 @@ const PokemonDetails = () => {
           <Link to="/">Back to List</Link>
         </>
       ) : (
-        <p>Loading...</p> // Display while fetching
+        <p>Loading...</p>
       )}
     </div>
   );
