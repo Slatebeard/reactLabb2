@@ -17,7 +17,7 @@ const PokemonList = () => {
 
   return (
     <div className="pokemonList">
-      <h2>Pokémon Lista</h2>
+      <h2>Pokémon List</h2>
       <ul>
         {pokemon.map((mon) => {
           const id = mon.url.split("/").slice(-2, -1)[0];
