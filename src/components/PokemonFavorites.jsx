@@ -27,10 +27,6 @@ const Favorites = () => {
     fetchFavorites();
   }, [favorites]);
 
-  if (loading) return <p>Laddar...</p>;
-  if (error) return <p>Fel: {error}</p>;
-  if (pokemon.length === 0) return <p>Inga favoriter sparade.</p>;
-
   return (
     <div className="favorites">
       <h2>Mina Favoriter</h2>

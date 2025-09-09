@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useFavorites from "../hooks/useFavorites.js";
 
 const PokemonList = () => {
   const [pokemon, setPokemon] = useState([]);
+  const { favorites, toggleFavorite } = useFavorites();
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -24,10 +26,14 @@ const PokemonList = () => {
           return (
             <li key={id}>
               <Link to={`/item/${id}`}>{mon.name}</Link>
+              <button onClick={() => toggleFavorite(id)}>
+                {favorites.includes(id) ? "Remove" : "Favorite"}
+              </button>
             </li>
           );
         })}
       </ul>
+      <Link to="/favorites">Show favorites</Link>
     </div>
   );
 };

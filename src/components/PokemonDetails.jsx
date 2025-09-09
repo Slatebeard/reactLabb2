@@ -22,6 +22,8 @@ const PokemonDetails = () => {
           <img src={pokemon.sprites.front_default} alt={pokemon.name} />
           <p>Height: {pokemon.height}</p>
           <p>Weight: {pokemon.weight}</p>
+          <Link to="/favorites">Back to favorites</Link>
+          <br />
           <Link to="/">Back to List</Link>
         </>
       ) : (
