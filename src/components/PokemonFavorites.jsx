@@ -29,12 +29,12 @@ const Favorites = () => {
 
   return (
     <div className="favorites">
-      <h2>Mina Favoriter</h2>
+      <h2>My Favorites</h2>
       <ul>
-        {pokemon.map((poke) => (
-          <li key={poke.id}>
-            <Link to={`/item/${poke.id}`}>{poke.name}</Link>
-            <button onClick={() => toggleFavorite(poke.id.toString())}>
+        {pokemon.map((mon) => (
+          <li key={mon.id}>
+            <Link to={`/item/${mon.id}`}>{mon.name}</Link>
+            <button onClick={() => toggleFavorite(mon.id.toString())}>
               Toggle
             </button>
           </li>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import useFavorites from "../hooks/useFavorites.js";
 
 const PokemonList = () => {
@@ -9,7 +9,7 @@ const PokemonList = () => {
   useEffect(() => {
     const fetchPokemon = async () => {
       const response = await fetch(
-        "https://pokeapi.co/api/v2/pokemon?limit=20"
+        "https://pokeapi.co/api/v2/pokemon?offset=151?limit=20"
       );
       const data = await response.json();
       setPokemon(data.results);
