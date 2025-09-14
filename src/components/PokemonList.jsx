@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router";
+
 import useFavorites from "../hooks/useFavorites.js";
+import { fetchPokemonSprites } from "../hooks/fetchPokemonSprites.js";
+
+import makeCapitalized from "../utils/makeCapitalized.js";
 
 const PokemonList = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -12,7 +16,8 @@ const PokemonList = () => {
         "https://pokeapi.co/api/v2/pokemon?offset=151?limit=20"
       );
       const data = await response.json();
-      setPokemon(data.results);
+      const pokemonWithSprites = await fetchPokemonSprites(data.results);
+    setPokemon(pokemonWithSprites);
     };
     fetchPokemon();
   }, []);
@@ -20,12 +25,15 @@ const PokemonList = () => {
   return (
     <div className="pokemonList">
       <h2>Pokémon List</h2>
-      <ul>
+        <ul>
         {pokemon.map((mon) => {
           const id = mon.url.split("/").slice(-2, -1)[0];
           return (
             <li key={id}>
-              <Link to={`/item/${id}`}>{mon.name}</Link>
+              <Link to={`/item/${id}`}>
+                {mon.sprite && <img src={mon.sprite} alt={mon.name} />}
+                {makeCapitalized(mon.name)}
+              </Link>
               <button onClick={() => toggleFavorite(id)}>
                 {favorites.includes(id) ? "Remove" : "Favorite"}
               </button>
