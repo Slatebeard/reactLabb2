@@ -7,6 +7,7 @@ body {
   background-color: #ff0000;
   color: #ddd;
   text-align: center;
+  background-image: url("../images/shattered-dark.png");
 }
 
 .pokemonList {
