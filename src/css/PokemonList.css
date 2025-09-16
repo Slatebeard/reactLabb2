@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Pokemon Classic";
+  src: url("../fonts/Pokemon Classic.ttf");
+}
+
 body {
   background-color: #ff0000;
   color: #ddd;
@@ -7,14 +12,16 @@ body {
 .pokemonList {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: "Pokemon Classic";
 }
 
 h2 {
   text-align: center;
   color: #ddff00;
-  margin-bottom: 20px;
+}
+
+.list-title {
+  text-shadow: 1px 1px 2px black, 0 0 1em black;
 }
 
 ul {
@@ -40,12 +47,9 @@ li {
 
 a {
   text-decoration: none;
-  color: #ffffff;
-  font-weight: bold;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
 }
 
 img {
@@ -124,6 +128,7 @@ button {
   cursor: pointer;
   font-size: 14px;
   color: #000000;
+  font-family: "Pokemon Classic";
 }
 
 button.active {
@@ -135,11 +140,10 @@ button.active {
   display: block;
   text-align: center;
   margin-top: 20px;
-  color: #007bff;
   font-weight: bold;
-  text-decoration: underline;
 }
 
-.pokemonList > a:hover {
-  color: #0056b3;
+.favorite-link {
+  color: #ddd;
+  text-shadow: 1px 1px 2px black, 0 0 1em black;
 }

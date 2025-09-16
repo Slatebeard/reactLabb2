@@ -3,7 +3,9 @@
   src: url("../fonts/Pokemon Classic.ttf");
 }
 
-h1 {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+.not-found {
+  text-align: center;
+  color: #ddd;
   font-family: "Pokemon Classic";
+  margin-top: 50px;
 }

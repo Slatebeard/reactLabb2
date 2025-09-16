@@ -18,21 +18,29 @@ const PokemonDetails = () => {
   }, [id]);
 
   return (
-    <div className="pokemon-details">
-      {pokemon ? (
-        <>
-          <h2 className="pokemon-name">{makeCapitalized(pokemon.name)}</h2>
-          <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-          <p>Height: {pokemon.height}</p>
-          <p>Weight: {pokemon.weight}</p>
-          <Link to="/favorites">Back to favorites</Link>
-          <br />
-          <Link to="/">Back to List</Link>
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
+    <>
+      <h2 className="details-title">-- Details --</h2>
+      <div className="pokemon-details">
+        {pokemon ? (
+          <>
+            <h2 className="pokemon-name">{makeCapitalized(pokemon.name)}</h2>
+            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+            <p>Height: {pokemon.height}</p>
+            <p>Weight: {pokemon.weight}</p>
+          </>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
+      <div className="navigation-links">
+        <Link to="/favorites" className="favorite-link">
+          Back to Favorites
+        </Link>
+        <Link to="/" className="home-link">
+          Back to List
+        </Link>
+      </div>
+    </>
   );
 };
 

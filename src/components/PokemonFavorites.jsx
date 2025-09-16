@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 
 import useFavorites from "../hooks/useFavorites.js";
 import makeCapitalized from "../utils/makeCapitalized.js";
-
-// import "../css/PokemonFavorites.css";
+import "../css/PokemonFavorites.css";
 
 const Favorites = () => {
   const { favorites, toggleFavorite } = useFavorites();
@@ -39,7 +38,7 @@ const Favorites = () => {
 
   return (
     <div className="favorites">
-      <h2>My Favorites</h2>
+      <h2 className="details-title">-- Favorites --</h2>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -62,7 +61,9 @@ const Favorites = () => {
           ))}
         </ul>
       )}
-      <Link to="/">Back to list</Link>
+      <Link to="/" className="back-link">
+        Back to list
+      </Link>
     </div>
   );
 };

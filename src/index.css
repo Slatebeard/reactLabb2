@@ -1,1 +1,8 @@
+@font-face {
+  font-family: "Pokemon Solid";
+  src: url("/fonts/pokemon-solid.ttf") format("truetype");
+}
 
+body {
+  font-family: "Pokemon Solid", Arial, sans-serif;
+}

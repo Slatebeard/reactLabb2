@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "Pokemon Classic";
+  src: url("../fonts/Pokemon Classic.ttf");
+}
+
+.details-title {
+  text-align: center;
+  color: #ddff00;
+  text-shadow: 1px 1px 2px black, 0 0 1em black;
+  font-family: "Pokemon Classic";
+}
+
 .pokemon-details {
   background-color: black;
   color: #ddd;
@@ -7,6 +19,7 @@
   border: #ddd solid 3px;
   border-radius: 10px;
   text-align: center;
+  font-family: "Pokemon Classic";
 }
 
 .pokemon-name {
@@ -23,6 +36,31 @@ p {
 a {
   color: #2600ff;
   font-weight: bold;
+}
+
+.navigation-links {
+  text-shadow: 1px 1px 2px black, 0 0 1em black;
+  font-family: "Pokemon Classic";
+}
+
+.home-link {
+  color: #ddd;
+  margin-top: 15px;
+  transition: color 0.3s ease;
+}
+
+.home-link:hover {
+  color: #2600ff;
+}
+
+.favorite-link {
+  color: #ddd;
+  margin-top: 15px;
+  transition: color 0.3s ease;
+}
+
+.favorite-link:hover {
+  color: #2600ff;
 }
 
 @media (max-width: 400px) {
