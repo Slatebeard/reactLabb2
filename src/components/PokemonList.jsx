@@ -6,6 +6,8 @@ import { fetchPokemonSprites } from "../hooks/fetchPokemonSprites.js";
 
 import makeCapitalized from "../utils/makeCapitalized.js";
 
+import "../css/PokemonList.css";
+
 const PokemonList = () => {
   const [pokemon, setPokemon] = useState([]);
   const { favorites, toggleFavorite } = useFavorites();
@@ -17,7 +19,7 @@ const PokemonList = () => {
       );
       const data = await response.json();
       const pokemonWithSprites = await fetchPokemonSprites(data.results);
-    setPokemon(pokemonWithSprites);
+      setPokemon(pokemonWithSprites);
     };
     fetchPokemon();
   }, []);
@@ -25,7 +27,7 @@ const PokemonList = () => {
   return (
     <div className="pokemonList">
       <h2>Pokémon List</h2>
-        <ul>
+      <ul>
         {pokemon.map((mon) => {
           const id = mon.url.split("/").slice(-2, -1)[0];
           return (

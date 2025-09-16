@@ -24,16 +24,17 @@ const Favorites = () => {
       }));
 
       const pokemonWithSprites = await fetchPokemonSprites(pokemonList);
-      setPokemon(pokemonWithSprites.map((mon, index) => ({
-        id: favorites[index],
-        name: mon.name,
-        sprite: mon.sprite,
-      })));
+      setPokemon(
+        pokemonWithSprites.map((mon, index) => ({
+          id: favorites[index],
+          name: mon.name,
+          sprite: mon.sprite,
+        }))
+      );
       setLoading(false);
     };
     fetchFavorites();
   }, [favorites]);
-
 
   return (
     <div className="favorites">
@@ -48,7 +49,9 @@ const Favorites = () => {
                 {mon.sprite && <img src={mon.sprite} alt={mon.name} />}
                 {mon.name}
               </Link>
-              <button onClick={() => toggleFavorite(mon.id.toString())}>Remove</button>
+              <button onClick={() => toggleFavorite(mon.id.toString())}>
+                Remove
+              </button>
             </li>
           ))}
         </ul>
