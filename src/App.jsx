@@ -9,7 +9,7 @@ function App() {
     <Router>
       <div className="app">
         <header>
-          <h1>Pokémon App</h1>
+          <h1>PokéDex</h1>
         </header>
         <main>
           <Routes>

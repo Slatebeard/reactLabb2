@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import useFavorites from "../hooks/useFavorites.js";
-import { fetchPokemonSprites } from "../hooks/fetchPokemonSprites.js";
-
 import makeCapitalized from "../utils/makeCapitalized.js";
+
+// import "../css/PokemonFavorites.css";
 
 const Favorites = () => {
   const { favorites, toggleFavorite } = useFavorites();
@@ -19,16 +19,17 @@ const Favorites = () => {
         return;
       }
 
-      const pokemonList = favorites.map((id) => ({
-        url: `https://pokeapi.co/api/v2/pokemon/${id}/`,
-      }));
-
-      const pokemonWithSprites = await fetchPokemonSprites(pokemonList);
+      const requests = favorites.map((id) =>
+        fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`).then((res) =>
+          res.json()
+        )
+      );
+      const results = await Promise.all(requests);
       setPokemon(
-        pokemonWithSprites.map((mon, index) => ({
-          id: favorites[index],
-          name: mon.name,
-          sprite: mon.sprite,
+        results.map((mon) => ({
+          id: mon.id,
+          name: makeCapitalized(mon.name),
+          sprite: mon.sprites?.front_default,
         }))
       );
       setLoading(false);
@@ -46,10 +47,15 @@ const Favorites = () => {
           {pokemon.map((mon) => (
             <li key={mon.id}>
               <Link to={`/item/${mon.id}`}>
-                {mon.sprite && <img src={mon.sprite} alt={mon.name} />}
                 {mon.name}
+                {mon.sprite && <img src={mon.sprite} alt={mon.name} />}
               </Link>
-              <button onClick={() => toggleFavorite(mon.id.toString())}>
+              <button
+                className={
+                  favorites.includes(mon.id.toString()) ? "active" : ""
+                }
+                onClick={() => toggleFavorite(mon.id.toString())}
+              >
                 Remove
               </button>
             </li>

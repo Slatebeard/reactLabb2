@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import makeCapitalized from "../utils/makeCapitalized";
+
+import "../css/PokemonDetails.css";
 
 const PokemonDetails = () => {
   const { id } = useParams();
@@ -18,7 +21,7 @@ const PokemonDetails = () => {
     <div className="pokemon-details">
       {pokemon ? (
         <>
-          <h2>{pokemon.name}</h2>
+          <h2 className="pokemon-name">{makeCapitalized(pokemon.name)}</h2>
           <img src={pokemon.sprites.front_default} alt={pokemon.name} />
           <p>Height: {pokemon.height}</p>
           <p>Weight: {pokemon.weight}</p>

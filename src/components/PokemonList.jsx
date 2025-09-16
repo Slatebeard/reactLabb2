@@ -26,24 +26,27 @@ const PokemonList = () => {
 
   return (
     <div className="pokemonList">
-      <h2>Pokémon List</h2>
+      <h2>-- List --</h2>
+      <Link to="/favorites">Show favorites</Link>
       <ul>
         {pokemon.map((mon) => {
           const id = mon.url.split("/").slice(-2, -1)[0];
           return (
             <li key={id}>
               <Link to={`/item/${id}`}>
-                {mon.sprite && <img src={mon.sprite} alt={mon.name} />}
                 {makeCapitalized(mon.name)}
+                {mon.sprite && <img src={mon.sprite} alt={mon.name} />}
               </Link>
-              <button onClick={() => toggleFavorite(id)}>
+              <button
+                className={favorites.includes(id) ? "active" : ""}
+                onClick={() => toggleFavorite(id)}
+              >
                 {favorites.includes(id) ? "Remove" : "Favorite"}
               </button>
             </li>
           );
         })}
       </ul>
-      <Link to="/favorites">Show favorites</Link>
     </div>
   );
 };
