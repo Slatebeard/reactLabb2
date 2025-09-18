@@ -5,6 +5,8 @@
 
 .favorites {
   font-family: "Pokemon Classic";
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .back-link {
