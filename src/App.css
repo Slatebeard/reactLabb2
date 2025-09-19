@@ -8,3 +8,13 @@ h1 {
   font-family: "Pokemon Classic";
   text-align: center;
 }
+
+.footer-text {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-family: "Pokemon Classic";
+  flex-direction: column;
+  font-size: x-small;
+
+  margin: auto;
+  padding: 50px;
+}

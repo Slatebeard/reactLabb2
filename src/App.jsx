@@ -23,6 +23,9 @@ function App() {
           </Routes>
         </main>
       </div>
+      <footer>
+        <p className="footer-text">2025 PokéDex. Created by Slatebeard.</p>
+      </footer>
     </Router>
   );
 }
